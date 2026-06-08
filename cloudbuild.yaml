@@ -3,19 +3,16 @@ options:
 
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [
-    'build',
-    '-t',
-    'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:$COMMIT_SHA',
-    '.'
-  ]
+  args:
+    - 'build'
+    - '-t'
+    - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:$COMMIT_SHA'
+    - '.'
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: [
-    'push',
-    'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:$COMMIT_SHA'
-  ]
+  args:
+    - 'push'
+    - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:$COMMIT_SHA'
 
 images:
 - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:$COMMIT_SHA'
-``
