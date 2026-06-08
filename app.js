@@ -1,7 +1,7 @@
 const http = require('http');
 
 const server = http.createServer((req, res) => {
-  res.write("FINAL SUCCESS 🚀");
+  res.write("PIPELINE FINAL DONE 🚀");
   res.end();
 });
 
