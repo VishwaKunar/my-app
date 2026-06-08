@@ -1,7 +1,7 @@
 const http = require('http');
 
 const server = http.createServer((req, res) => {
-  res.write("Hello from GCP CI/CD 🚀");
+  res.write("FINAL SUCCESS 🚀");
   res.end();
 });
 
