@@ -16,3 +16,13 @@ steps:
 
 images:
 - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:$COMMIT_SHA'
+
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+    - 'build'
+    - '-t'
+    - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:$COMMIT_SHA'
+    - '-t'
+    - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:latest'
+    - '.'
+``
