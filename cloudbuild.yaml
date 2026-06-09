@@ -2,21 +2,7 @@ options:
   logging: CLOUD_LOGGING_ONLY
 
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args:
-    - 'build'
-    - '-t'
-    - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:$COMMIT_SHA'
-    - '.'
-
-- name: 'gcr.io/cloud-builders/docker'
-  args:
-    - 'push'
-    - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:$COMMIT_SHA'
-
-images:
-- 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:$COMMIT_SHA'
-
+# ✅ Build image with BOTH tags
 - name: 'gcr.io/cloud-builders/docker'
   args:
     - 'build'
@@ -25,4 +11,13 @@ images:
     - '-t'
     - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:latest'
     - '.'
-``
+
+# ✅ Push BOTH tags
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+    - 'push'
+    - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app'
+
+images:
+- 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:$COMMIT_SHA'
+- 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:latest'
